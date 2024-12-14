@@ -1,3 +1,40 @@
+ETCMC Installation Script
+==========================
+
+This script automates the installation of ETCMC software on your system, sets up a service for automatic startup after the LXC container boots, and creates all necessary files required for its operation.
+
+Features:
+---------
+- Downloads and installs the ETCMC software.
+- Sets up a `systemd` service to ensure ETCMC starts automatically after the system boots.
+- Creates and configures essential files such as `start.sh`, `stop.sh`, and `update.sh`.
+- Ensures seamless operation of the ETCMC node.
+
+Prerequisites:
+--------------
+Make sure your system meets the following requirements:
+1. Operating System: Linux-based system with `wget`, `bash`, and `python3` installed.
+2. Root permissions to execute installation commands.
+
+Usage Instructions:
+-------------------
+1. Clone this repository or copy the script URL.
+2. Run the following command to download and execute the script:
+
 ```sh
 wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/refs/heads/main/etcmc_ct_script.sh | sh
 ```
+
+3. The script will:
+- Download the ETCMC software.
+- Configure required files.
+- Set up a `systemd` service for automatic startup.
+- Restart the system to apply changes.
+
+Support:
+--------
+If you encounter any issues or have questions, please open an issue in this repository.
+
+Disclaimer:
+-----------
+Use this script at your own risk. Make sure to review the script content before execution.

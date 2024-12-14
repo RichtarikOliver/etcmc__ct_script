@@ -117,6 +117,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable etcmc.service
 sudo systemctl start etcmc.service
 
+clear
+
 # Retrieving the current IP address
 echo "The current IP address of the device:"
 hostname -I | awk '{print $1}'

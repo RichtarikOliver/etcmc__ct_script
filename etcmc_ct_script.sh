@@ -1,46 +1,46 @@
 #!/bin/bash
 
-# URL na stiahnutie súboru
+# URL for file download
 URL="https://github.com/Nowalski/ETCMC_Software/releases/download/Setup%2FWindows/ETCMC_Linux.zip"
 
-# Nastavenie cesty pre služobný súbor
+# Path for the service file
 SERVICE_FILE="/etc/systemd/system/etcmc.service"
 
-# Cieľová zložka pre extrakciu
+# Target directory for extraction
 TARGET_DIR="/root/etcmc"
 
-# Názov ZIP súboru
+# ZIP file name
 ZIP_FILE="ETCMC_Linux.zip"
 
-# Stiahnutie súboru
-echo "Sťahovanie súboru z $URL..."
+# Downloading the file
+echo "Downloading the file from $URL..."
 wget -O "$ZIP_FILE" "$URL"
 
-# Kontrola, či sa súbor úspešne stiahol
+# Checking if the file was successfully downloaded
 if [ ! -f "$ZIP_FILE" ]; then
-    echo "Chyba: Súbor sa nepodarilo stiahnuť."
+    echo "Error: The file could not be downloaded."
     exit 1
 fi
 
-# Vytvorenie cieľovej zložky, ak neexistuje
+# Creating the target directory if it does not exist
 if [ ! -d "$TARGET_DIR" ]; then
-    echo "Vytváranie cieľovej zložky $TARGET_DIR..."
+    echo "Creating the target directory $TARGET_DIR..."
     mkdir -p "$TARGET_DIR"
 fi
 
-# Extrahovanie ZIP súboru bez použitia unzip
-echo "Extrahovanie súboru do $TARGET_DIR..."
+# Extracting the ZIP file without using unzip
+echo "Extracting the file to $TARGET_DIR..."
 python3 -m zipfile -e "$ZIP_FILE" "$TARGET_DIR"
 
 if [ $? -ne 0 ]; then
-    echo "Chyba: Nepodarilo sa extrahovať súbor."
+    echo "Error: Failed to extract the file."
     exit 1
 fi
 
-echo "Súbor bol úspešne extrahovaný."
+echo "The file was successfully extracted."
 
-# Spustenie inštalačného skriptu
-echo "Spúšťanie inštalačného skriptu..."
+# Running the installation script
+echo "Running the installation script..."
 cd "$TARGET_DIR"
 chmod +x install_script.sh
 sed -i 's/\r$//' install_script.sh
@@ -49,8 +49,8 @@ sed -i 's/\r$//' install_script.sh
 sudo apt update
 sudo apt install screen -y
 
-# Vytvorenie update.sh
-echo "Vytváram update.sh..."
+# Creating update.sh
+echo "Creating update.sh..."
 cat > "$TARGET_DIR/update.sh" <<EOL
 #!/bin/bash
 python3 Linux.py stop
@@ -61,36 +61,36 @@ sleep 5
 EOL
 chmod +x "$TARGET_DIR/update.sh"
 
-# Vytvorenie start.sh
-echo "Vytváram start.sh..."
+# Creating start.sh
+echo "Creating start.sh..."
 cat > "$TARGET_DIR/start.sh" <<EOL
 #!/bin/bash
-# Spustenie ETCMC v screen relácii
+# Starting ETCMC in a screen session
 /usr/bin/screen -dmS etcmc /usr/bin/python3 $TARGET_DIR/Linux.py start --port 5000
 EOL
 chmod +x "$TARGET_DIR/start.sh"
 
-# Vytvorenie stop.sh
-echo "Vytváram stop.sh..."
+# Creating stop.sh
+echo "Creating stop.sh..."
 cat > "$TARGET_DIR/stop.sh" <<EOL
 #!/bin/bash
-# Zastavenie ETCMC
+# Stopping ETCMC
 /usr/bin/python3 $TARGET_DIR/Linux.py stop
 EOL
 chmod +x "$TARGET_DIR/stop.sh"
 
-# Vytvorenie poweroff.sh
-echo "Vytváram poweroff.sh..."
+# Creating poweroff.sh
+echo "Creating poweroff.sh..."
 cat > "$TARGET_DIR/poweroff.sh" <<EOL
 #!/bin/bash
-# Zastavenie ETCMC a vypnutie zariadenia
+# Stopping ETCMC and powering off the device
 $TARGET_DIR/stop.sh
 /sbin/poweroff
 EOL
 chmod +x "$TARGET_DIR/poweroff.sh"
 
-# Vytvorenie systemd služby
-echo "Vytváram systemd službu..."
+# Creating the systemd service
+echo "Creating the systemd service..."
 sudo bash -c "cat > $SERVICE_FILE" <<EOL
 [Unit]
 Description=ETCMC
@@ -111,26 +111,26 @@ RemainAfterExit=true
 WantedBy=multi-user.target
 EOL
 
-# Načítanie novej služby do systemd
-echo "Načítanie služby..."
+# Reloading systemd services
+echo "Reloading the systemd services..."
 sudo systemctl daemon-reload
 sudo systemctl enable etcmc.service
 sudo systemctl start etcmc.service
 
-# Zobrazenie stavu služby
-echo "Kontrola stavu služby:"
+# Checking the service status
+echo "Checking the service status:"
 sudo systemctl status etcmc.service
 
-# Získanie aktuálnej IP adresy
-echo "Aktuálna IP adresa zariadenia:"
+# Retrieving the current IP address
+echo "The current IP address of the device:"
 hostname -I | awk '{print $1}'
 
-# Počkanie 5 sekúnd pred reštartom
-echo "Čakám 5 sekúnd pred reštartom..."
+# Waiting 5 seconds before rebooting
+echo "Waiting 5 seconds before rebooting..."
 sleep 5
 
-# Reštart systému
-echo "Reštartujem systém..."
+# Rebooting the system
+echo "Rebooting the system..."
 sudo reboot
 
-echo "Inštalácia dokončená."
+echo "Installation completed."

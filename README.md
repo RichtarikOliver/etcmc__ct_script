@@ -52,7 +52,7 @@ This part of the script helps you set up the **ETCMC Nodecheck Telegram bot**, w
 1. Run the following command to download and execute the Nodecheck setup script:
 
 ```sh
-wget -O https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/refs/heads/main/nodecheckscript.sh | sh
+wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/refs/heads/main/nodecheckscript.sh | sh
 ```
 
 2. The script will:

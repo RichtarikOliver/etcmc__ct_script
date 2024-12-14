@@ -5,7 +5,7 @@ cd etcmc
 # Download and extract the tar file
 wget https://etcmcnodecheck.apritec.dev/files-linux/etcmcnodecheck-linux-v0.10.tar
 tar -xvf etcmcnodecheck-linux-v0.10.tar
-rm /etcmcnodecheck-linux-v0.10.tar
+rm etcmcnodecheck-linux-v0.10.tar
 # Change to the Etcmcnodecheck directory
 cd Etcmcnodecheck
 

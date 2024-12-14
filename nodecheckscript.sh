@@ -1,4 +1,5 @@
 #!/bin/bash
+cd etcmc
 
 # Download and extract the tar file
 wget https://etcmcnodecheck.apritec.dev/files-linux/etcmcnodecheck-linux-v0.10.tar
@@ -49,3 +50,5 @@ chmod +x nodechecksetup.sh
 
 # Confirmation of script creation
 echo "nodechecksetup.sh has been successfully created and is executable."
+
+rm /etc/etcmcnodecheck-linux-v0.10.tar

@@ -1,4 +1,5 @@
 #!/bin/bash
+cd
 cd etcmc
 
 # Download and extract the tar file

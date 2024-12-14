@@ -1,3 +1,4 @@
+
 ETCMC Installation Script
 ==========================
 
@@ -26,10 +27,18 @@ wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/ref
 ```
 
 3. The script will:
-- Download the ETCMC software.
-- Configure required files.
-- Set up a `systemd` service for automatic startup.
-- Restart the system to apply changes.
+   - Download the ETCMC software.
+   - Configure required files.
+   - Set up a `systemd` service for automatic startup.
+   - Restart the system to apply changes.
+
+4. **Access the GUI:**
+   - After the script finishes, it will display the IP address of the device.
+   - You can access the ETCMC GUI by navigating to the following URL in your browser:
+   ```
+   http://<IP_ADDRESS>:5000
+   ```
+   - Replace `<IP_ADDRESS>` with the IP address provided by the script.
 
 Support:
 --------

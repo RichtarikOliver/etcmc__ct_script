@@ -60,7 +60,7 @@ wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/ref
    - Create the setup script `nodechecksetup.sh`.
 
 3. **Setting Up the Node:**
-   - Once the script has completed, you’ll need to run the following command to set up your node with your specific Telegram bot ID:
+   - Once the script has completed, you’ll need to go to folder /etcmc/Etcmcnodecheck and you’ll need to run the following command to set up your node with your specific Telegram bot ID:
    
    ```sh
    ./nodechecksetup.sh <Your_Telegram_Bot_ID>

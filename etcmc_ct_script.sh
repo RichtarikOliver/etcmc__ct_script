@@ -42,14 +42,15 @@ echo "The file was successfully extracted."
 # Running the installation script
 echo "Running the installation script..."
 cd "$TARGET_DIR"
-chmod +x install_script.sh
-sed -i 's/\r$//' install_script.sh
-./install_script.sh
+# chmod +x install_script.sh
+# sed -i 's/\r$//' install_script.sh
+# ./install_script.sh
+apt install python3 python3-pip screen curl jq  -y 
+pip3 install -r requirements.txt
+chmod +x Linux.py ETCMC_GETH.py updater.py geth
 
 sudo apt update
-sudo apt install screen -y
 
-pip3 install -r requirements.txt
 
 # Creating update.sh
 echo "Creating update.sh..."

@@ -55,6 +55,7 @@ cat > "$TARGET_DIR/update.sh" <<EOL
 #!/bin/bash
 python3 Linux.py stop
 python3 Linux.py update
+pip3 install -r requirements.txt
 echo 'ETCMC Updated. Starting ETCMC Node now...'
 sleep 5
 ./start.sh

@@ -49,6 +49,8 @@ sed -i 's/\r$//' install_script.sh
 sudo apt update
 sudo apt install screen -y
 
+pip3 install -r requirements.txt
+
 # Creating update.sh
 echo "Creating update.sh..."
 cat > "$TARGET_DIR/update.sh" <<EOL

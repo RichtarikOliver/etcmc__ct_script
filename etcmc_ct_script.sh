@@ -12,6 +12,9 @@ TARGET_DIR="/root/etcmc"
 # ZIP file name
 ZIP_FILE="ETCMC_Linux.zip"
 
+apt update 
+apt dist-upgrade -y 
+
 # Downloading the file
 echo "Downloading the file from $URL..."
 wget -O "$ZIP_FILE" "$URL"

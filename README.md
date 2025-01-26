@@ -42,6 +42,15 @@ wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/ref
 
 ---
 
+### Disable Login Page on Web GUI  
+-------------------------  
+To disable the login page on the ETCMC Web GUI, simply run the following command:  
+
+```sh
+wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/refs/heads/main/login.sh | sh
+```
+---
+
 ETCMC Nodecheck Telegram Bot Setup
 ====================================
 
@@ -70,14 +79,6 @@ wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/ref
 
 4. After the setup script completes, the node will be ready and the **ETCMC Nodecheck Telegram bot** will be active.
 
----
-### Disable Login Page on Web GUI  
--------------------------  
-To disable the login page on the ETCMC Web GUI, simply run the following command:  
-
-```sh
-wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/refs/heads/main/login.sh | sh
-```
 
 -----
 ### Support:

@@ -49,6 +49,8 @@ To disable the login page on the ETCMC Web GUI, simply run the following command
 ```sh
 wget -O - https://raw.githubusercontent.com/RichtarikOliver/etcmc__ct_script/refs/heads/main/login.sh | sh
 ```
+
+### Cloning Etcmc Node
 -----
 To fix the clone enode, simply run the following command:
 ```sh

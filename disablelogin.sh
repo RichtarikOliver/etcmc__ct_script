@@ -10,7 +10,7 @@ new_json='{"login_required": false}'
 echo "Updating login.json in all running LXC containers..."
 for container in $containers; do
     echo "Updating container: $container"
-    pct exec $container -- bash -c "cd /etcmc && echo '$new_json' > login.json"
+    pct exec $container -- bash -c "cd etcmc && echo '$new_json' > login.json"
 done
 
 echo "Update complete."

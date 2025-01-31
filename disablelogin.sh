@@ -13,4 +13,5 @@ for container in $containers; do
     pct exec $container -- bash -c "cd etcmc && echo '$new_json' > login.json"
 done
 
+
 echo "Update complete."

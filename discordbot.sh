@@ -70,8 +70,5 @@ EOF
 # Step 6: Make setup.sh executable
 chmod +x /root/etcmc/RaewolfBot/setup.sh
 
-# Step 7: Run the setup.sh script to prompt for user_id and node_id
-/root/etcmc/RaewolfBot/setup.sh
-
 # Notify the user
-echo "Script setup.sh executed successfully! The bot is now running, and system service is created."
+echo "Script setup.sh has been created successfully. You can run it manually to set up the bot."

@@ -8,7 +8,3 @@ for ct in $containers; do
     pct exec $ct -- bash -c "cd etcmc && ./update.sh"
 done
 
-for ct in $containers; do
-    echo "Restarting etcmc.service in ct $ct..."
-    pct exec $ct -- systemctl restart etcmc.service
-done

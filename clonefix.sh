@@ -21,6 +21,21 @@ else
     echo "etcpow_balance.txt.enc not found."
 fi
 
+# Kontrola a mazanie backup súborov
+for file in \
+    /root/etcmc/etcpow_balance_backup.txt.enc.bak \
+    /root/etcmc/etcpow_balance_backup.txt.enc.bak.1 \
+    /root/etcmc/etcpow_balance_backup.txt.enc.bak.2 \
+    /root/etcmc/etcpow_balance_backup.txt.enc.bak.3 \
+    /root/etcmc/etcpow_balance_backup.txt.enc.bak.4; do
+    if [ -f "$file" ]; then
+        rm "$file"
+        echo "$file deleted."
+    else
+        echo "$file not found."
+    fi
+done
+
 echo "Starting Geth..."
 cd ~/etcmc || exit 1
 ./start.sh

@@ -11,7 +11,7 @@ if [ -z "\$1" ]; then
   exit 1
 fi
 
-larissa-geth --larissa.node=1 --larissa.node.user.key="\$1"
+larissa-geth --larissa.node=1 --larissa.node.user.key="\$1" --maxpeers 128
 EOF
 
 chmod +x /root/startnode.sh

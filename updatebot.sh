@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the file path
-FILE_PATH="/root/etcmc/RaewolfBot/raewolfbot.py" 
+FILE_PATH="/etcmc/RaewolfBot/raewolfbot.py" 
 
 # Define the new content
 NEW_CONTENT='import requests

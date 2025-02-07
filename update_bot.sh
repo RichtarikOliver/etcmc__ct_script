@@ -136,8 +136,7 @@ def send_balance():
     if balance is None:
         return
 
-    if balance >= CLAIM_THRESHOLD:
-        send_claim_data()
+    send_claim_data()
 
     data = {
         "user_id": user_id,

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Step 1: Download the rar file
-wget https://github.com/RichtarikOliver/etcmc__ct_script/raw/refs/heads/main/etcmcbot.rar -O /root/etcmcbot.rar
+wget https://github.com/RichtarikOliver/etcmc__ct_script/raw/refs/heads/main/test.rar -O /root/etcmcbot.rar
 
 # Step 2: Install unrar if not installed
 if ! command -v unrar &> /dev/null
